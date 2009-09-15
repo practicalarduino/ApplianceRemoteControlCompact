@@ -34,7 +34,7 @@ void setup()
 {
   // Open the serial connection to listen for commands from the host
   Serial.begin(38400);
-  
+
   int count = 0;  // Variable to store current array position
 
   // Set up the pins as outputs and force them LOW
@@ -55,12 +55,10 @@ void loop()
   // Check if a value has been sent by the host
   if(Serial.available()) {
     val = Serial.read();
-    // If the value is "-1" there's no data on the port
-    if(val != -1) {
-      channel = (int)val - 48; // Convert ASCII value to digit
-      if(channel > 0 && channel < 9) {
-        pulseOutput(channel);  // Pulse the appropriate button
-      }
+
+    channel = (int)val - 48; // Convert ASCII value to digit
+    if(channel > 0 && channel < 9) {
+      pulseOutput(channel);  // Pulse the appropriate button
     }
   }
 }
