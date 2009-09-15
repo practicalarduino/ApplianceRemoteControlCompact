@@ -38,7 +38,7 @@ void setup()
   int count = 0;  // Variable to store current array position
 
   // Set up the pins as outputs and force them LOW
-  for(count=0; count<8; count++) {
+  for(count; count<8; count++) {
     pinMode(outputArray[count], OUTPUT);
     digitalWrite(outputArray[count], LOW);
   }
